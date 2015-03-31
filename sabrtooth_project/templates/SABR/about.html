@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+
+{% block title %}About{% endblock %}
+
+
+{% block body_block %}
+
+<h2>Technologies used to create SABRtooth</h2>
+
+{% if techs %}
+
+<div class="row">
+  
+	{% for tech in techs %}
+
+<div class="col-sm-6 col-md-3">
+    <div class="thumbnail">
+      <img src="{{ MEDIA_URL }}{{ tech.image }}" alt="">
+      <div class="caption">
+      
+        <!--<h3>{{tech.name}}</h3>-->
+        <p>{{tech.description}}</p>
+        
+      </div>
+    </div>
+
+ </div> 
+	{% endfor %}
+   
+</div>
+
+
+{% endif %}
+
+{% endblock %} 
