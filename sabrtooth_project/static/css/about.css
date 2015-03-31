@@ -1,0 +1,6 @@
+.thumbnail{
+    width: 250px;
+    height: 250px;
+    overflow: auto;
+    padding: 15px;
+}
