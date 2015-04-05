@@ -1,5 +1,4 @@
-from settings import PROJECT_ROOT, SITE_ROOT
-import os
+from settings import *
 
 DEBUG = True
 TEMPLATE_DEBUG = True

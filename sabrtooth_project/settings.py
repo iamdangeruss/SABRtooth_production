@@ -7,9 +7,6 @@ https://docs.djangoproject.com/en/1.7/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.7/ref/settings/
 """
-
-
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 
@@ -17,7 +14,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 TEMPLATE_PATH = os.path.join(BASE_DIR, '../templates')
 STATIC_PATH = os.path.join(BASE_DIR,'../static')
 MEDIA_ROOT = os.path.join(BASE_DIR, '../media')
-
 
 
 # Quick-start development settings - unsuitable for production
@@ -67,24 +63,7 @@ WSGI_APPLICATION = 'sabrtooth_project.wsgi.application'
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
 DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.mysql',
-#        'NAME': 'SABR',
-#        'USER': 'root',
-#        'PASSWORD': 'm@rl0we',
-#        'HOST': '127.0.0.1',
-#        'PORT': '3306'
-#        
-#    },
-    
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'sabr',
-        'USER': 'iamdangeruss',
-        'PASSWORD': '',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
-    }
+
 }
 
 
@@ -107,9 +86,6 @@ USE_TZ = True
 
 
 MEDIA_URL = '/media/'
-
-
-
 
 STATICFILES_DIRS = (
     STATIC_PATH,
@@ -164,5 +140,7 @@ MEDIAFILES_LOCATION = 'media'
 MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
 DEFAULT_FILE_STORAGE = 'SABR.custom_storages.MediaStorage'
 
+# try to load local_settings.py if it exists
+from local_settings import *
 
 
