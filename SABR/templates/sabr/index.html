@@ -1,25 +1,15 @@
-<!DOCTYPE html>
+{% extends 'base.html' %}
 
 {% load staticfiles %}
 
-<html>
-    <head>
-        <title>SABRtooth</title>
-       
-		<script src="{% static "js/bootstrap.js" %}"></script>
-		<script src="{% static "js/autocomplete.js" %}"></script>
-		
-		<link href="{% static "css/jquery-ui.css" %}" rel="stylesheet" type="text/css" media="all" />
-		<link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
-		<link href="{% static "css/dashboard.css" %}" rel="stylesheet">
-		
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-   		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js" type="text/javascript"></script>
 
-   		
-   		
+{% block title %}SABRtooth{% endblock %}
 
-		<script>
+
+{% block body_block %}
+
+
+	<script>
     	$(function() {
   			$("#players").autocomplete({
     			source: "/sabr/api/get_players/",
@@ -29,27 +19,19 @@
         		}
  			 });
 		});
+		
+		$(function() {
+  			$("#playersBig").autocomplete({
+    			source: "/sabr/api/get_players/",
+    			minLength: 2,
+    			select: function( event, ui ) { 
+            		window.location.href = ui.item.value;
+        		}
+ 			 });
+		});
     </script>
 
-    </head>
 
-    <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="/sabr/">Project SABRtooth</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          
-        </div><!--/.navbar-collapse -->
-      </div>
-    </nav>
     
     
     <!-- Main jumbotron for a primary marketing message or call to action -->
@@ -60,7 +42,7 @@
         <p>
         <div class="ui-widget">
   			<label for="players"></label>
-  			<input class="form-control input-lg" type="text" id="players" placeholder="Enter Player Name...">
+  			<input class="form-control input-lg" type="text" id="playersBig" placeholder="Enter Player Name...">
 		</div>
 		</p>
       </div>
@@ -88,14 +70,4 @@
 
       <hr>
 
-      <footer>
-        <p>&copy; Russell Giamarino 2015</p>
-      </footer>
-    </div> <!-- /container -->
-
-
-        
-    
-    
-</body>
-</html>
+{% endblock %}       
