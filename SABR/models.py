@@ -160,8 +160,9 @@ class Batting(models.Model):
     	return self.sb - self.cs
     	
     def ba(self):
-    	if self.ab != 0: 
+    	if self.ab != 0 and self.ab is not None: 
     		return "{:.3f}".format(self.h / float(self.ab))
+    		#return self.ab
     	else:
     		return "{:.3f}".format(.000)
     			
@@ -170,7 +171,7 @@ class Batting(models.Model):
         #OBP = (H + BB + HBP) / (AB + BB + HBP + SF)
         # some legacy stats dont have SF 
         
-        if self.ab != 0:
+        if self.ab != 0 and self.ab is not None:
             if not self.sf:
                 self.sf = 0
     	    return "{:.3f}".format((self.h + self.bb + self.hbp) / (float(self.ab) + self.bb + self.hbp + self.sf))	
@@ -179,14 +180,14 @@ class Batting(models.Model):
     
     def slg(self):	
     	
-    	if self.ab != 0:
+    	if self.ab != 0 and self.ab is not None:
     	    singles = self.h - self.number_2b - self.number_3b - self.hr
     	    return  "{:.3f}".format((singles + 2 * self.number_2b + 3 * self.number_3b + 4 * self.hr) / float(self.ab))
     	else:
     	    return "{:.3f}".format(.000)
     	    
     def ops(self):
-        if self.ab != 0:
+        if self.ab != 0 and self.ab is not None:
             if not self.sf:
                 self.sf = 0
     	
