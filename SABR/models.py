@@ -239,6 +239,10 @@ class Pitching(models.Model):
     gidp = models.IntegerField(db_column='GIDP', blank=True, null=True)  # Field name made lowercase.
     djangoid = models.IntegerField(db_column='djangoid', primary_key=True)
 
+    def teamlogo(self):
+    	t = TeamLogos.objects.get(teamid=self.teamid, startyear__lte=self.yearid,endyear__gte=self.yearid)
+    	return t.image
+    
     class Meta:
         managed = False
         db_table = 'Pitching'
@@ -263,6 +267,10 @@ class Fielding(models.Model):
     cs = models.IntegerField(db_column='CS', blank=True, null=True)  # Field name made lowercase.
     zr = models.FloatField(db_column='ZR', blank=True, null=True)  # Field name made lowercase.
     djangoid = models.IntegerField(db_column='djangoid', primary_key=True)
+    
+    def teamlogo(self):
+    	t = TeamLogos.objects.get(teamid=self.teamid, startyear__lte=self.yearid,endyear__gte=self.yearid)
+    	return t.image
 
     class Meta:
         managed = False
@@ -292,6 +300,10 @@ class Battingpost(models.Model):
     sf = models.IntegerField(db_column='SF', blank=True, null=True)  # Field name made lowercase.
     gidp = models.IntegerField(db_column='GIDP', blank=True, null=True)  # Field name made lowercase.
     djangoid = models.IntegerField(db_column='djangoid', primary_key=True)
+    
+    def teamlogo(self):
+    	t = TeamLogos.objects.get(teamid=self.teamid, startyear__lte=self.yearid,endyear__gte=self.yearid)
+    	return t.image
     
     def netsteals(self):
     	return self.sb - self.cs
@@ -347,6 +359,10 @@ class Fieldingpost(models.Model):
     sb = models.IntegerField(db_column='SB', blank=True, null=True)  # Field name made lowercase.
     cs = models.IntegerField(db_column='CS', blank=True, null=True)  # Field name made lowercase.
     djangoid = models.IntegerField(db_column='djangoid', primary_key=True)
+    
+    def teamlogo(self):
+    	t = TeamLogos.objects.get(teamid=self.teamid, startyear__lte=self.yearid,endyear__gte=self.yearid)
+    	return t.image
 
     class Meta:
         managed = False
@@ -385,6 +401,10 @@ class Pitchingpost(models.Model):
     sf = models.IntegerField(db_column='SF', blank=True, null=True)  # Field name made lowercase.
     gidp = models.IntegerField(db_column='GIDP', blank=True, null=True)  # Field name made lowercase.
     djangoid = models.IntegerField(db_column='djangoid', primary_key=True)
+    
+    def teamlogo(self):
+    	t = TeamLogos.objects.get(teamid=self.teamid, startyear__lte=self.yearid,endyear__gte=self.yearid)
+    	return t.image
 
     class Meta:
         managed = False

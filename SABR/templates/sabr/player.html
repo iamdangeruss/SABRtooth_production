@@ -175,7 +175,11 @@
 					
 								<tr>
 			        				<td>{{line.yearid}}</td>
-			        				<td>{{line.teamid}}</td>
+			        				{% if line.teamlogo  %}
+						        		<td><img class = "smallteam" src="{{ MEDIA_URL }}{{ line.teamlogo }}" alt=""></td>
+						        	{% else %}
+						        		<td>{{line.teamid}}</td>
+						        	{% endif %}
 			        				<td>{{line.w}}</td>
 			        				<td>{{line.l}}</td>
 			        				<td>{{line.g}}</td>
@@ -224,7 +228,11 @@
 					
 						<tr>
 			        		<td>{{line.yearid}}</td>
-			        		<td>{{line.teamid}}</td>
+			        		{% if line.teamlogo  %}
+						     	<td><img class = "smallteam" src="{{ MEDIA_URL }}{{ line.teamlogo }}" alt=""></td>
+						    {% else %}
+						    	<td>{{line.teamid}}</td>
+						    {% endif %}
 			        		<td>{{line.pos}}</td>
 			        		<td>{{line.g}}</td>
 			        		<td>{{line.gs}}</td>
@@ -278,7 +286,11 @@
 						<tr>
 			        		<td>{{line.yearid}}</td>
 			        		<td>{{line.round}}</td>
-			        		<td>{{line.teamid}}</td>
+			        		{% if line.teamlogo  %}
+						     	<td><img class = "smallteam" src="{{ MEDIA_URL }}{{ line.teamlogo }}" alt=""></td>
+						    {% else %}
+						    	<td>{{line.teamid}}</td>
+						    {% endif %}
 			        		<td>{{line.g}}</td>
 			        		<td>{{line.ab}}</td>
 			        		<td>{{line.r}}</td>
@@ -336,7 +348,11 @@
 						<tr>
 			        		<td>{{line.yearid}}</td>
 			        		<td>{{line.round}}</td>
-			        		<td>{{line.teamid}}</td>
+			        		{% if line.teamlogo  %}
+						    	<td><img class = "smallteam" src="{{ MEDIA_URL }}{{ line.teamlogo }}" alt=""></td>
+						    {% else %}
+						    	<td>{{line.teamid}}</td>
+						    {% endif %}
 			        		<td>{{line.w}}</td>
 			        		<td>{{line.l}}</td>
 			        		<td>{{line.g}}</td>
@@ -389,7 +405,11 @@
 						<tr>
 			        		<td>{{line.yearid}}</td>
 			        		<td>{{line.round}}</td>
-			        		<td>{{line.teamid}}</td>
+			        		{% if line.teamlogo  %}
+						    	<td><img class = "smallteam" src="{{ MEDIA_URL }}{{ line.teamlogo }}" alt=""></td>
+						    {% else %}
+						    	<td>{{line.teamid}}</td>
+						    {% endif %}
 			        		<td>{{line.pos}}</td>
 			        		<td>{{line.g}}</td>
 			        		<td>{{line.gs}}</td>
